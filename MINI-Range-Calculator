@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>EV Range Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        input, button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            background-color: #007BFF;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #result {
+            font-size: 32px;
+            color: #007BFF;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>EV Range Calculator</h1>
+        <form id="calculator">
+            <label for="bars"># of Bars:</label>
+            <input type="number" id="bars" min="1" required>
+            <br>
+
+            <label for="miPerkWh">mi/kWh:</label>
+            <input type="number" id="miPerkWh" min="0" step="0.1" required>
+            <br>
+
+            <button type="submit">Calculate</button>
+        </form>
+        <div id="result"></div>
+    </div>
+    <script>
+        document.getElementById('calculator').addEventListener('submit', function(event) {
+            // prevent the form from submitting normally
+            event.preventDefault();
+
+            // get the input values
+            var bars = document.getElementById('bars').value;
+            var miPerkWh = document.getElementById('miPerkWh').value;
+
+            // calculate the miles remaining
+            var milesRemaining = bars * 0.125 * 28.9 * miPerkWh;
+
+            // display the result
+            document.getElementById('result').innerText = 'Miles remaining: ' + milesRemaining.toFixed(2);
+        });
+    </script>
+</body>
+</html>
