@@ -14,6 +14,7 @@
             max-width: 600px;
             margin: 0 auto;
             padding: 20px;
+            box-sizing: border-box;
         }
 
         form {
@@ -29,6 +30,7 @@
             margin: 10px 0;
             border-radius: 5px;
             border: 1px solid #ccc;
+            box-sizing: border-box;
         }
 
         button {
@@ -46,6 +48,18 @@
             color: #007BFF;
             font-weight: bold;
             margin-top: 20px;
+        }
+
+        /* Responsive design for mobile devices */
+        @media only screen and (max-width: 600px) {
+            .container {
+                width: 100%;
+                padding: 10px;
+            }
+
+            #result {
+                font-size: 24px;
+            }
         }
     </style>
 </head>
